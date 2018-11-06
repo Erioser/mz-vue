@@ -8,7 +8,16 @@ function resolve(url) {
 
 module.exports = {
     devServer: {
-      port: 8000
+      port: 8000,
+      proxy: {
+        '/mz': {
+          target: 'https://m.maizuo.com/',
+          changeOrigin: true,
+          pathRewrite: {
+            '^/mz': ''
+          }
+        }
+      }
     },
     chainWebpack  (config)  {
        config
@@ -16,6 +25,7 @@ module.exports = {
             .alias // 配置解析别名
             .set('@styles', resolve('src/stylesheets'))
             .set('@libs', resolve('src/libs'))
+            .set('@util', resolve('src/util'))
             .set('@c', resolve('src/components'))
             .set('@pages', resolve('src/pages'))
             

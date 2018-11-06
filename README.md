@@ -80,5 +80,22 @@ App.vue 根组件  任何一个项目， 都需要一个根实例，根实例里
     scoped 锁定css作用域，只在当前组件生效， 做法： 1. 为当前组件模板都添加上独一无二的自定义属性：data-v-216tedus 2. 将style中的css样式都添加上属性选择器的限制
 
 
+---
+### 项目具体实现
 
+1. 利用vue-awesome-swiper来完成轮播图开发
+
+> 轮播图小坑：因为swiper-slide是手动循环出来的，所以动态数据的时候无法loop/autoplay，解决办法:利用v-if判断数据来渲染swiper，保证swiper组件被渲染的时候，已经有了数据
+
+2. 在vue.config.js中进行proxy代理
+
+3. 使用fetch进行数据交互
+
+> fetch是ES6原生API，提供了数据交互的方式，兼容性差
+
+4. 利用babel-polyfill垫片实现高级语法兼容
+
+5. 使用axios进行数据交互/ jsonp
+
+> 想要在任何组件中都能使用到axios -> 将其挂载在Vue.prototype上
 

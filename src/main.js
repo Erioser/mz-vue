@@ -1,3 +1,6 @@
+// \babel-polyfill
+// import 'babel-polyfill'
+
 import Vue from 'vue'
 import App from './App.vue'
 
@@ -7,6 +10,8 @@ import '@styles/main.scss'
 // flexible 移动端适配
 import '@libs/flexible'
 
+// 引入各种插件： swiper...
+import '@libs'
 
 // Vue.config.devtools = false
 Vue.config.productionTip = false

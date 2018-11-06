@@ -1,0 +1,61 @@
+
+<template>
+    <div class="app-home-film-box">
+
+        <app-home-film-item
+            v-for = "film in films"
+            :key  = "film.id"
+            :info = "film"
+        ></app-home-film-item>
+
+        <div class="more-button" >更多{{type.title}}电影</div>
+    </div>
+</template>
+<script>
+ import AppHomeFilmItem from '@c/common/app-home/AppHomeFilmItem'
+ export default {
+     components:{
+         AppHomeFilmItem
+     },
+     props: ['type'],
+     data () {
+         return {
+             films: []
+         }
+     },
+     created () {
+         let { url, count = 5 } = this.type
+         this.$http({
+            url: '/mz/v4/api/film/'+ url +'?page=1' ,
+            params: {
+                __t: Date.now(),
+                count
+            }
+         })
+         .then(result => {
+             this.films = result.films
+         })
+     }
+ }
+    
+</script>
+<style lang="scss">
+   .app-home-film-box {
+       padding-top: .48rem;
+       margin-bottom:.266667rem;
+
+       .more-button {
+            width: 4.266667rem;
+            height: .8rem;
+            border: 1px solid #aaa;
+            border-radius: .4rem;
+            margin: .266667rem auto .8rem;
+            text-align: center;
+            line-height: .8rem;
+            font-size: .32rem;
+            color: #616161;
+            cursor: pointer;
+       }
+   }
+</style>
+

@@ -28,6 +28,7 @@ export default {
 
 main {
   padding-top: 1.333333rem;
+  
 }
 
 
