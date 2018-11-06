@@ -1,6 +1,6 @@
 
 <template>
-    <div class="app-home-film-item">
+    <div @click="goToDetail" class="app-home-film-item">
         <div class="img-box">
             <img width="100%" :src="info.cover.origin" alt="">
         </div>
@@ -26,6 +26,12 @@
     //          return new Date(this.info.premiereAt).getMonth() + 1
     //      }
     //  }
+    methods: {
+      goToDetail () {
+        //   this.$router.push({ name: 'detail', params: { id: this.info.id } })
+          this.$router.push({ name: 'detail',params: {id: this.info.id}, query: {  name: this.info.name } })
+      }  
+    }
  } 
 </script>
 <style lang="scss">

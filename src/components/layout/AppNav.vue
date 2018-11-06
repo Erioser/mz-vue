@@ -8,16 +8,16 @@
         >
             <nav class="nav-list animated" v-if = "show">
                 <ul class="nav-content">
-                    <li class="nav-item" 
+                    <router-link active-class="active" @click.native = "$emit('update:show', false)" tag = "li" :to = "item.path" class="nav-item" 
                         v-for = "item in navs"
                         :key  = "item.id"
                     >
-                        <a >
+                        <a>
                             <span>{{ item.title }}</span>
                             <i class="fa fa-angle-right"></i>
                         </a>
                         
-                    </li>
+                    </router-link>
                 </ul>
                 
             </nav>
@@ -37,7 +37,7 @@ export default {
     data () {
         return {
             navs: [
-                { id: 1, title: '首页', path: '/' },
+                { id: 1, title: '首页', path: '/home' },
                 { id: 2, title: '影片', path: '/films' },
                 { id: 3, title: '我的', path: '/mine' }
             ]
@@ -82,7 +82,9 @@ export default {
                 border-bottom: 1px dotted #333;
                 color: #9a9a9a;
             }
-        }
+
+            &.active a { color: #fff; }
+        } 
     }
     .mask {
         background: rgba(0,0,0,0.5);

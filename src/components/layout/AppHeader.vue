@@ -6,7 +6,7 @@
                 <div class="nav-btn icon" @click = "isNavShow = !isNavShow">
                     <i class="fa fa-navicon"></i>
                 </div>
-                <div class="title">卖座电影</div>
+                <div class="title">{{title}}</div>
             </div>
             <div class="right">
                 <div class="city">
@@ -28,11 +28,33 @@ import AppNav from '@c/layout/AppNav'
 export default {
     data () {
         return {
-            isNavShow: false
+            isNavShow: false,
+            title: '卖座电影'
         }
     },
     components: {
         AppNav
+    },
+    created () {
+        // 给bus绑定事件
+        // this.$bus.$on('change:title', title => this.title = title)
+        // 全局路由钩子
+        this.title =this.createTitle()
+        this.$router.beforeEach((to, from, next) => {
+            this.title =this.createTitle(to)
+            next()
+        })
+    },
+    methods: {
+        createTitle (to) {
+            let _to = to || this.$route
+            console.log(_to)
+            switch ( _to.name ) {
+                case 'films': return '影片列表';
+                case 'detail': return _to.query.name;
+                default: return '卖座电影';
+            }
+        }
     }
 }
 </script>

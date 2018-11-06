@@ -3,7 +3,7 @@
     <app-header></app-header>
     
     <main>
-      <app-home></app-home>
+      <router-view></router-view>
     </main>
 
   </div>
@@ -12,12 +12,10 @@
 
 <script>
 import AppHeader from '@c/layout/AppHeader'
-import AppHome from '@pages/home/AppHome'
 
 export default {
     name: 'app',
     components: {
-      AppHome,
       AppHeader
     }
 }

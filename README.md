@@ -99,3 +99,56 @@ App.vue 根组件  任何一个项目， 都需要一个根实例，根实例里
 
 > 想要在任何组件中都能使用到axios -> 将其挂载在Vue.prototype上
 
+---
+
+### vue-router 使用
+
+vue提供了强大的vue-router路由工具供我们使用
+
+需要安装vue-router包：
+
+yarn add vue-router --save
+
+原理：监听地址栏变化后进行对于的路由组件的卸载和安装
+
+路由的配置需要实例化路由工具router并将其注入到根实例
+
+
+需要配置路由表routes
+
+    名字（具名路由）/重定向/别名alias...
+
+配置mode选项来控制路由模式:hash/history(采用H5的history API，需要后端配置（忽略前端路由中的路径）)
+
+配置路由出口 router-view
+
+
+利用router-link生成dom进行路由调整 
+
+    to / tag
+    methods: push
+
+利用this.$router/router的api方法（go,back,push,replace）进行路由的切换 -> 编程式导航
+
+
+路由参数有两种:
+
+1. 路径参数 直接匹配在path中，如：
+
+    /detail/1 ; /detail/2  此时的1和2就是参数
+
+    需要在路由中进行配置,强制性的必须有参数 path: '/detail/:param/...'
+
+    router.push({name: 'detail', params:{...}})
+
+    route.params
+
+2. querystring 参数， ?a=1&b=2
+
+    不需要配置
+    router.push({name: 'detail', query:{...}})
+
+    route.query
+
+
+利用全局的路由守卫，监听路由的切换

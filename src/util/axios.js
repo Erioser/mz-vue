@@ -14,6 +14,7 @@ const ajax = (options) => {
         .catch(err => {
             return err
             console.log('数据请求失败')
+            
         })
     
 }

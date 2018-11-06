@@ -13,12 +13,16 @@ import '@libs/flexible'
 // 引入各种插件： swiper...
 import '@libs'
 
+// router 路由
+import router from './router'
+
 // Vue.config.devtools = false
 Vue.config.productionTip = false
 
 
 // 根实例
 new Vue({
+  router,// 从此任何组件都可以使用到$router （路由工具） ,$route (路由属性)
   render: h => h(App)
   // render: (createElement) => {
   //   return createElement(App)
