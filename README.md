@@ -95,7 +95,7 @@ App.vue 根组件  任何一个项目， 都需要一个根实例，根实例里
 
 4. 利用babel-polyfill垫片实现高级语法兼容
 
-5. 使用axios进行数据交互/ jsonp
+5. 使用axios进行数据交互/ jsonp async-await
 
 > 想要在任何组件中都能使用到axios -> 将其挂载在Vue.prototype上
 

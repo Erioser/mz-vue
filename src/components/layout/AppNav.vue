@@ -64,6 +64,7 @@ export default {
     z-index: -1;
     height: auto;
     top: 1.333333rem;
+    width: 100%;
     // padding-top: ;
     .nav-list {
         width: 7.066667rem;
@@ -89,6 +90,7 @@ export default {
         top: 0;
         z-index: -1;
         height: 100vh;
+        width: 100%;
     }
 }
 

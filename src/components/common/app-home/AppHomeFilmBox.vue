@@ -23,18 +23,16 @@
              films: []
          }
      },
-     created () {
+     async created () {
          let { url, count = 5 } = this.type
-         this.$http({
+         let result = await this.$http({
             url: '/mz/v4/api/film/'+ url +'?page=1' ,
             params: {
                 __t: Date.now(),
                 count
             }
          })
-         .then(result => {
-             this.films = result.films
-         })
+         this.films = result.films
      }
  }
     
