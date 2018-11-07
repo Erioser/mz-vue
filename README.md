@@ -190,3 +190,16 @@ yarn add vue-router --save
 
 当使用了keep-alive后，生命周期钩子函数会多出来两个：activated （重新进入，mounted），deactivated (离开 destroyed)
 
+
+
+#### 上拉加载
+
+1. better-sroll
+
+问题： 回到顶部，按钮是放在长列表中的，当点击按钮的时候，会先停止滚动，第二次点击才会触发点击事件
+
+解决: 将按钮放到父组件中，控制按钮显示隐藏的数据挂载在父组件中，sync传递给list组件，list在监听滚动后，触发事件更改父组件的数据
+
+    点击按钮时，利用ref找到子组件后调用子组件（list）的回到顶部方法
+
+

@@ -8,7 +8,7 @@
             :info = "film"
         ></app-home-film-item>
 
-        <div class="more-button" >更多{{type.title}}电影</div>
+        <router-link tag = "div" :to = "{name:'films', params: {url: type.url}}" class="more-button" >更多{{type.title}}电影</router-link>
     </div>
 </template>
 <script>

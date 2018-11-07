@@ -7,9 +7,11 @@
             :type = "type"
         ></app-home-film-box>
     </section>
+
 </template>
 
 <script>
+
 import AppHomeBanner from '@c/common/app-home/AppHomeBanner'
 import AppHomeFilmBox from '@c/common/app-home/AppHomeFilmBox'
 export default {

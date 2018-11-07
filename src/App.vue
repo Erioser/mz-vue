@@ -26,7 +26,13 @@ export default {
     name: 'app',
     components: {
       AppHeader
-    }
+    },
+    // created () {
+    //   this.$route.beforeEach((to ,from ,next) => {
+    //     if ( to. )
+    //     next()
+    //   })
+    // }
 }
 
 </script>
@@ -35,7 +41,10 @@ export default {
 
 main {
   padding-top: 1.333333rem;
-  
+ 
+}
+html, body, #app, main {
+   height: 100%;
 }
 
 

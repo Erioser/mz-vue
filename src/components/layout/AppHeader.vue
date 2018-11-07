@@ -48,7 +48,6 @@ export default {
     methods: {
         createTitle (to) {
             let _to = to || this.$route
-            console.log(_to)
             switch ( _to.name ) {
                 case 'films': return '影片列表';
                 case 'detail': return _to.query.name;

@@ -27,9 +27,10 @@ const routes = [
         // alias: '/'
     },
     {
-        path: '/films',
+        path: '/films/:url',
         name: 'films',
-        component: AppFilms
+        component: AppFilms,
+        props: true
     },
     {
         path: '/detail/:id',
