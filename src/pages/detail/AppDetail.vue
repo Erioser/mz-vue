@@ -30,9 +30,11 @@
 
 <script>
 export default {
-    async beforeCreate () {
+    props: ['id'],
+    async created () {
         let result = await this.$http({
-            url: '/mz/v4/api/film/'+ this.$route.params.id,
+            // url: '/mz/v4/api/film/'+ this.$route.params.id,
+            url: '/mz/v4/api/film/'+ this.id,
             params: { __t: Date.now() }
         })
         console.log(result)

@@ -34,7 +34,8 @@ const routes = [
     {
         path: '/detail/:id',
         name: 'detail',
-        component: AppDetail
+        component: AppDetail,
+        props: true
     },
     {
         path: '/login',
@@ -68,7 +69,16 @@ const routes = [
 const router = new VueRouter({
     mode: 'history', // hash
     // base: '/app/',
-    routes
+    routes,
+    scrollBehavior (to, from, savedPosition) {
+        if (savedPosition) { // 如果能记录
+            return savedPosition // 滚动到上次记录的位置
+        } else {
+
+            return JSON.parse(localStorage.position || JSON.stringify({ x: 0, y: 0 }) )       
+            // return JSON.parse(localStorage.position || JSON.stringify({ x: 0, y: 0 }) )       
+        }
+    }
 })
 
 

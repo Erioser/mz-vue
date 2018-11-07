@@ -24,6 +24,10 @@ export default {
     components: {
         AppHomeBanner,
         AppHomeFilmBox
+    },
+    beforeRouteLeave (to, from ,next) {
+        localStorage.position  = JSON.stringify({x: 0, y: 300})
+        next()
     }
 }
 </script>
