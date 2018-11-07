@@ -172,3 +172,21 @@ yarn add vue-router --save
     Access-Control-Expose-Headers : 'set-cookie'
 
 > axios默认在发送请求的时候不会携带cookie，需要携带的时候，设置: axios.defaults.withCredentials = true;
+
+
+#### keep-alive
+
+可以利用内置的keep-alive组件去保存切换后的组件的状态，当组件切换回来的时候，会直接使用到缓存的这些数据，不会再次经历初始化阶段，当切换出去的时候也不会经历销毁阶段
+
+应用场景：
+
+路由切换后，组件需要重新获取数据，用户体验差，所以可以使用keep-alive处理，
+
+如果有的情况下，数据变动较为频繁，就不能使用keep-alive
+
+问题: 如果没有了mounted和destroyed，需要使用的时候怎么办
+
+如果是路由组件的话可以用beforeRouteEnter和beforeRouteLeave来替代，如果不是路由组件，怎么办？
+
+当使用了keep-alive后，生命周期钩子函数会多出来两个：activated （重新进入，mounted），deactivated (离开 destroyed)
+

@@ -3,7 +3,7 @@
     <app-header></app-header>
     
     <main>
-      <keep-alive>
+      <keep-alive include="app-home">
         <router-view></router-view>
       </keep-alive>
       <!-- <transition

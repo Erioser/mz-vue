@@ -13,6 +13,7 @@
 import AppHomeBanner from '@c/common/app-home/AppHomeBanner'
 import AppHomeFilmBox from '@c/common/app-home/AppHomeFilmBox'
 export default {
+    name: 'app-home',
     data () {
         return {
             film_types: [
@@ -25,9 +26,16 @@ export default {
         AppHomeBanner,
         AppHomeFilmBox
     },
-    beforeRouteLeave (to, from ,next) {
+    // activated () {
+    //     console.log('activated')
+    // },
+    // deactivated () {
+    //     console.log('deactivated')
+    // },
+    deactivated (to, from ,next) {
+    // beforeRouteLeave (to, from ,next) {
         localStorage.position  = JSON.stringify({x: 0, y: 300})
-        next()
+        // next()
     }
 }
 </script>
