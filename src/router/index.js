@@ -46,12 +46,16 @@ const routes = [
             {
                 path: 'login',
                 name: 'login',
-                component: AppLogin,
+                components: {
+                    login: AppLogin
+                },
             },
             {
                 path: 'user-info',
                 name: 'user-info',
-                component: AppUserInfo,
+                components: {
+                    'user-info': AppUserInfo
+                },
                 beforeEnter:  (to, from ,next) => {
                     let result = auth.authLogin()
                     console.log(result,111)

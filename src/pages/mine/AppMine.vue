@@ -1,6 +1,8 @@
 <template>
     <section class="app-mine">
-        <router-view></router-view>
+        <router-view name="login"></router-view>
+        <hr>
+        <router-view name="user-info"></router-view>
     </section>
 </template>
 
