@@ -8,8 +8,9 @@ Vue.use(VueRouter)
 import AppHome from '@pages/home/AppHome'
 import AppFilms from '@pages/films/AppFilms'
 import AppDetail from '@pages/detail/AppDetail'
-import AppLogin from '@pages/login/AppLogin'
-import AppUserInfo from '@pages/user-info/AppUserInfo'
+import AppMine from '@pages/mine/AppMine'
+import AppLogin from '@pages/mine/login/AppLogin'
+import AppUserInfo from '@pages//mine/user-info/AppUserInfo'
 import AppNotFound from '@pages/not-found/AppNotFound'
 
 // 路由表
@@ -37,19 +38,27 @@ const routes = [
         component: AppDetail
     },
     {
-        path: '/login',
-        name: 'login',
-        component: AppLogin
-    },
-    {
-        path: '/user-info',
-        name: 'user-info',
-        component: AppUserInfo,
-        beforeEnter:  (to, from ,next) => {
-            let result = auth.authLogin()
-            console.log(result,111)
-            next(result.id ? true : {name: 'login'})
-        }
+        path: '/mine',
+        name: 'mine',
+        component: AppMine,
+        redirect: {name: 'user-info'},
+        children: [
+            {
+                path: 'login',
+                name: 'login',
+                component: AppLogin,
+            },
+            {
+                path: 'user-info',
+                name: 'user-info',
+                component: AppUserInfo,
+                beforeEnter:  (to, from ,next) => {
+                    let result = auth.authLogin()
+                    console.log(result,111)
+                    next(result.id ? true : {name: 'login'})
+                }
+            }
+        ]
     },
     {
         path: '/not-found',
@@ -62,7 +71,21 @@ const routes = [
     }
 ]
 
-
+// {
+//     path: '/login',
+//     name: 'login',
+//     component: AppLogin
+// },
+// {
+//     path: '/user-info',
+//     name: 'user-info',
+//     component: AppUserInfo,
+//     beforeEnter:  (to, from ,next) => {
+//         let result = auth.authLogin()
+//         console.log(result,111)
+//         next(result.id ? true : {name: 'login'})
+//     }
+// },
 
 // 路由工具
 const router = new VueRouter({

@@ -13,7 +13,7 @@
                     北京
                     <i  class="fa fa-angle-down"></i>
                 </div>
-                <router-link tag = "div" :to = "{name: 'user-info'}" class="user icon">
+                <router-link tag = "div" :to = "{name: 'mine'}" class="user icon">
                     <i  class="fa fa-user-o"></i>
                 </router-link>
             </div>

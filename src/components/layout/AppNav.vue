@@ -8,7 +8,7 @@
         >
             <nav class="nav-list animated" v-if = "show">
                 <ul class="nav-content">
-                    <router-link active-class="active" @click.native = "$emit('update:show', false)" tag = "li" :to = "item.path" class="nav-item" 
+                    <router-link active-class="active" @click.native = "$emit('update:show', false)" tag = "li" :to = "{name:item.name}" class="nav-item" 
                         v-for = "item in navs"
                         :key  = "item.id"
                     >
@@ -37,9 +37,9 @@ export default {
     data () {
         return {
             navs: [
-                { id: 1, title: '首页', path: '/home' },
-                { id: 2, title: '影片', path: '/films' },
-                { id: 3, title: '我的', path: '/user-info' }
+                { id: 1, title: '首页', name: 'home' },
+                { id: 2, title: '影片', name: 'films' },
+                { id: 3, title: '我的', name: 'user-info' }
             ]
         }
     },
