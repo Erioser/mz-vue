@@ -1,7 +1,21 @@
 import axios from 'axios'
-
-const ajax = (options) => {
+axios.defaults.withCredentials = true;// 设置携带cookie
+// 响应头中间件
+// axios.interceptors.response.use(function (response) {
+//     // Do something with response data
+//     console.log(response, 11111);
+//     return response;
+// }, function (error) {
+//     // Do something with response error
+//     return Promise.reject(error);
+// });
+const ajax = (options,all) => {
     let _react = options.react === undefined ? true : options.react
+    
+    options.params = options.params || {}
+    
+    options.params.__t = Date.now()
+    
     return axios(options)
         .then(res => {
             if (res.data.msg === 'ok') {
@@ -9,12 +23,12 @@ const ajax = (options) => {
             } else {
                 if (_react) console.log('数据获取失败')
             }
-            return res.data.data          
+        
+            return all ? res : res.data.data          
         })
         .catch(err => {
-            return err
             console.log('数据请求失败')
-            
+            return err      
         })
     
 }

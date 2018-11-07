@@ -49,7 +49,10 @@ export default {
         return {
             info: null
         }
-    }
+    },
+    // beforeRouteUpdate () {
+    //     console.log('change')
+    // }
 }
 </script>
 

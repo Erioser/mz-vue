@@ -28,7 +28,6 @@
          let result = await this.$http({
             url: '/mz/v4/api/film/'+ url +'?page=1' ,
             params: {
-                __t: Date.now(),
                 count
             }
          })

@@ -13,9 +13,9 @@
                     北京
                     <i  class="fa fa-angle-down"></i>
                 </div>
-                <div class="user icon">
+                <router-link tag = "div" :to = "{name: 'user-info'}" class="user icon">
                     <i  class="fa fa-user-o"></i>
-                </div>
+                </router-link>
             </div>
         </div>
         <app-nav :show.sync = "isNavShow"></app-nav>
@@ -52,6 +52,7 @@ export default {
             switch ( _to.name ) {
                 case 'films': return '影片列表';
                 case 'detail': return _to.query.name;
+                case 'login': return '登录';
                 default: return '卖座电影';
             }
         }

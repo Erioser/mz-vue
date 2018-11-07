@@ -152,3 +152,23 @@ yarn add vue-router --save
 
 
 利用全局的路由守卫，监听路由的切换
+
+路由守卫有很多种:全局守卫/路由独享守卫/组件内守卫，可以监听路由的跳转情况和状态，利用全局守卫实现了路由切换的时候更改头部的title，利用路由独享守卫，实现了登录权限验证，没有登录不能进入到某个路由
+
+问题：
+
+登录之后，后端利用响应头中的set-cookie会在浏览器端存入一些验证数据，然后进入个人中心的时候发送请求cookie会跟过去，从而得到正确的数据
+
+但是，因为后端响应cookie的时候domain设置的不是我的域，导致无法将cookie存入到当前的域下
+
+想要模拟cookie，自己存，问题是我也不知道存啥
+
+    准备从响应头中取出set-cookie字段，然后自己存储，发现res.headers中没有set-cookie
+
+    准备设置响应头拦截的中间件，查看一下能否有set-cookie发现也没有
+
+    最终知道：想要从响应头中取出什么，却决于后端让你能取出什么：
+
+    Access-Control-Expose-Headers : 'set-cookie'
+
+> axios默认在发送请求的时候不会携带cookie，需要携带的时候，设置: axios.defaults.withCredentials = true;
