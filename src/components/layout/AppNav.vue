@@ -38,7 +38,7 @@ export default {
         return {
             navs: [
                 { id: 1, title: '首页', path: '/home' },
-                { id: 2, title: '影片', path: '/films' },
+                { id: 2, title: '影片', path: '/films/now-playing' },
                 { id: 3, title: '我的', path: '/user-info' }
             ]
         }
