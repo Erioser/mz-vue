@@ -2,7 +2,7 @@
 <template>
     <div @click="goToDetail" class="app-home-film-item">
         <div class="img-box">
-            <img width="100%" :src="info.cover.origin" alt="">
+            <img width="100%" v-lazy="info.cover.origin" alt="">
         </div>
         <div class="film-info">
             <div class="left">

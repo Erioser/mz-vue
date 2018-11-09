@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <vue-progress-bar></vue-progress-bar>
     <app-header></app-header>
     
     <main>
@@ -27,12 +28,23 @@ export default {
     components: {
       AppHeader
     },
-    // created () {
-    //   this.$route.beforeEach((to ,from ,next) => {
-    //     if ( to. )
-    //     next()
-    //   })
-    // }
+    created () {
+      // console.log(this.$router)
+      this.$router.beforeEach((to, from ,next) => {
+        console.log('beforeEach')
+        if ( to.name !== 'user-info'  ) {
+          this.$Progress.start()
+        }
+        
+        next()
+      })
+      this.$router.afterEach((to, from ,next) => {
+         console.log('afterEach')
+         if ( to.name !== 'user-info' ) {
+          this.$Progress.finish()
+        }
+      })
+    }
 }
 
 </script>

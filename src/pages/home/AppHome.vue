@@ -1,5 +1,6 @@
 <template>
     <section class="app-home">
+        <!-- <mt-progress :value="value" :bar-height="5"></mt-progress> -->
         <app-home-banner></app-home-banner>
         <app-home-film-box
             v-for = "type in film_types"
@@ -11,7 +12,6 @@
 </template>
 
 <script>
-
 import AppHomeBanner from '@c/common/app-home/AppHomeBanner'
 import AppHomeFilmBox from '@c/common/app-home/AppHomeFilmBox'
 export default {
@@ -21,12 +21,22 @@ export default {
             film_types: [
                 { id: 1, url: 'now-playing', title: '热映',  },
                 { id: 2, url: 'coming-soon', title: '即将上映', count: 3 }
-            ]
+            ],
+            value: 0
         }
+    },
+    created () {
+        // let timer = setInterval(() => {
+        //     this.value ++
+        //     if ( this.value >= 100 ) {
+        //         clearInterval(timer)
+        //     }
+        // },30)
     },
     components: {
         AppHomeBanner,
-        AppHomeFilmBox
+        AppHomeFilmBox,
+        // [Progress.name]: Progress
     },
     // activated () {
     //     console.log('activated')

@@ -203,3 +203,27 @@ yarn add vue-router --save
     点击按钮时，利用ref找到子组件后调用子组件（list）的回到顶部方法
 
 
+##### 组件库的使用
+
+vue的生态系统很健全，很庞大，周边有很多vue相关的插件或者组件...
+
+例如，使用了vue-progressbar实现了头部的进度条，注入$Progress在 this._proto_._proto_上，也就是说this是组件的实例，this._proto是组件的prototype，组件的prototype的_proto_指向的是Vue的prototype（因为组件是Vue的子类）
+
+问题:
+
+我们是在全局守卫中开启进度和完成进度的，但是当进入user-info的时候，因为没有登录，可以就会直接跳转到login，此时，全局的守卫beforeEach会执行两次，afterEach会执行一次，导致start两次，finish一次，在login中点击个人中心按钮的时候，beforeEach会执行一次，不会执行afterEach，导致start执行一次，没有finish，导致此时进度条不正常
+
+解决:
+
+在全局守卫中不为user-info加progress，在其组件内的守卫中加入progress
+
+
+什么是组件库?拥有很多组件的库
+
+市场上流行的组件库有很多，分别有PC的/移动的...
+
+PC： element-ui,iview
+
+移动： mint-ui, vux
+
+组件库一般都有两种使用方式: 全局引入（把组件库中所有的组件都引入进行全部注册），按需引入（需要哪个加载哪个）

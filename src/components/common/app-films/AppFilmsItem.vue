@@ -1,6 +1,6 @@
 <template>
     <router-link tag="div" :to = "{name: 'detail', params: {id: info.id}, query: {name: info.name}}" class="app-films-item">
-        <div class="img-box"><img :src="info.poster.thumbnail" alt="" width="100%"></div>
+        <div class="img-box"><img v-lazy="info.poster.thumbnail" alt="" width="100%"></div>
         <div class="film-info">
             <p class="title">{{info.name}}</p>
             <p class="description">{{info.intro}}</p>

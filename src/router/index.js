@@ -49,7 +49,6 @@ const routes = [
         component: AppUserInfo,
         beforeEnter:  (to, from ,next) => {
             let result = auth.authLogin()
-            console.log(result,111)
             next(result.id ? true : {name: 'login'})
         }
     },
