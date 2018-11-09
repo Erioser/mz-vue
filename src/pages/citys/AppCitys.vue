@@ -1,23 +1,22 @@
 <template>
     <section class="app-citys">
-       <app-content-block title = "当前所在城市">
-           <app-content-item class="active">{{activeCity.name}}</app-content-item>
-       </app-content-block>
+       <gp8-content-block title = "当前所在城市">
+           <gp8-content-item class="active">{{activeCity.name}}</gp8-content-item>
+       </gp8-content-block>
 
-       <app-content-block title = "热门城市">
-           <app-content-item 
+       <gp8-content-block title = "热门城市">
+           <gp8-content-item 
                 v-for = "city in hotCitys"
                 :key  = "city.id"
-           >{{city.name}}</app-content-item>
-       </app-content-block>
+           >{{city.name}}</gp8-content-item>
+       </gp8-content-block>
 
         <app-citys-content></app-citys-content>
     </section>
 </template>
 
 <script>
-import AppContentBlock from '@c/layout/AppContentBlock'
-import AppContentItem from '@c/layout/AppContentItem'
+
 import AppCitysContent from '@c/common/app-citys/AppCitysContent'
 export default {
     name: 'app-citys',
@@ -36,8 +35,6 @@ export default {
         }
     },
     components: {
-        AppContentBlock,
-        AppContentItem,
         AppCitysContent
     }
 }

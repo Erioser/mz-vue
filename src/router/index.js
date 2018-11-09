@@ -11,6 +11,7 @@ import AppDetail from '@pages/detail/AppDetail'
 import AppLogin from '@pages/login/AppLogin'
 import AppUserInfo from '@pages/user-info/AppUserInfo'
 import AppCitys from '@pages/citys/AppCitys'
+import Test from '@pages/test/Test'
 import AppNotFound from '@pages/not-found/AppNotFound'
 
 // 路由表
@@ -57,6 +58,11 @@ const routes = [
             let result = auth.authLogin()
             next(result.id ? true : {name: 'login'})
         }
+    },
+    {
+        path: '/test',
+        name: 'test',
+        component: Test
     },
     {
         path: '/not-found',

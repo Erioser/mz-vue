@@ -53,6 +53,7 @@ export default {
                 case 'detail': return _to.query.name;
                 case 'login': return '登录';
                 case 'citys': return '城市选择';
+                case 'test': return '测试';
                 default: return '卖座电影';
             }
         }

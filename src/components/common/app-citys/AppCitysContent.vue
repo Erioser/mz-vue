@@ -18,7 +18,6 @@
 
 <script>
 import { IndexList, IndexSection, Cell } from 'mint-ui';
-import { cities } from '@util'
 export default {
     components: {
         [IndexList.name]: IndexList,
@@ -38,7 +37,7 @@ export default {
     },
     computed: {
         cities () {
-            return cities(this.citys)
+            return this.$util.cities(this.citys)
         }
     }
 }

@@ -24,6 +24,9 @@ import VueProgressBar from 'vue-progressbar'
 // import 'mint-ui/lib/style.css'
 import { Lazyload } from 'mint-ui';
 
+// gp8-ui
+
+import GP8UI from '../gp8-ui'
 
 
 // 将VueAwemeSwiper中的多个组件注册为全局组件
@@ -32,6 +35,8 @@ Vue.use(VueAwesomeSwiper)
 Vue.use(VueCookies)
 
 Vue.use(Lazyload);
+
+Vue.use(GP8UI)
 
 // Vue.use(MintUI)
 
