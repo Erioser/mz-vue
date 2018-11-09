@@ -10,6 +10,7 @@ import AppFilms from '@pages/films/AppFilms'
 import AppDetail from '@pages/detail/AppDetail'
 import AppLogin from '@pages/login/AppLogin'
 import AppUserInfo from '@pages/user-info/AppUserInfo'
+import AppCitys from '@pages/citys/AppCitys'
 import AppNotFound from '@pages/not-found/AppNotFound'
 
 // 路由表
@@ -37,6 +38,11 @@ const routes = [
         name: 'detail',
         component: AppDetail,
         props: true
+    },
+    {
+        path: '/citys',
+        name: 'citys',
+        component: AppCitys
     },
     {
         path: '/login',

@@ -9,10 +9,10 @@
                 <div class="title">{{title}}</div>
             </div>
             <div class="right">
-                <div class="city">
+                <router-link tag = "div" :to="{name: 'citys'}" class="city">
                     北京
                     <i  class="fa fa-angle-down"></i>
-                </div>
+                </router-link>
                 <router-link tag = "div" :to = "{name: 'user-info'}" class="user icon">
                     <i  class="fa fa-user-o"></i>
                 </router-link>
@@ -52,6 +52,7 @@ export default {
                 case 'films': return '影片列表';
                 case 'detail': return _to.query.name;
                 case 'login': return '登录';
+                case 'citys': return '城市选择';
                 default: return '卖座电影';
             }
         }
