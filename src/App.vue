@@ -4,7 +4,7 @@
     <app-header></app-header>
     
     <main>
-      <keep-alive include="app-home">
+      <keep-alive include="app-home,app-citys">
         <router-view></router-view>
       </keep-alive>
       <!-- <transition

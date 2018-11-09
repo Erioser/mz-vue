@@ -10,13 +10,17 @@
                 :key  = "city.id"
            >{{city.name}}</app-content-item>
        </app-content-block>
+
+        <app-citys-content></app-citys-content>
     </section>
 </template>
 
 <script>
 import AppContentBlock from '@c/layout/AppContentBlock'
 import AppContentItem from '@c/layout/AppContentItem'
+import AppCitysContent from '@c/common/app-citys/AppCitysContent'
 export default {
+    name: 'app-citys',
     data () {
         return {
             activeCity: {
@@ -25,15 +29,16 @@ export default {
             },
             hotCitys: [
                 {id: 12, name: '北京'},
-                {id: 13, name: '上海'},
-                {id: 14, name: '广州'},
-                {id: 15, name: '深圳'}
+                {id: 11, name: '上海'},
+                {id: 13, name: '广州'},
+                {id: 10, name: '深圳'}
             ]
         }
     },
     components: {
         AppContentBlock,
-        AppContentItem
+        AppContentItem,
+        AppCitysContent
     }
 }
 </script>
